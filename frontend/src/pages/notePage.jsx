@@ -38,6 +38,18 @@ function NotePage() {
         >
           Delete
         </button>
+
+        <button
+          onClick={() => navigate(`/update/${note._id}`)}
+          className="bg-cyan-600 text-white px-4 py-2 rounded"
+        >
+          Update
+        </button>
+        <a href="/">
+          <button className="bg-pink-400 text-white px-4 py-2 rounded">
+            Back Home
+          </button>
+        </a>
       </div>
     </div>
   );

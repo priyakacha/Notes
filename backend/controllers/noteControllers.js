@@ -21,7 +21,7 @@ export const getAllNote = async (req, res) => {
 
 export const getNote = async (req, res) => {
   try {
-    const Note = await Notes.findOne({ id: req.params.id });
+    const Note = await Notes.findById(req.params.id);
 
     res.status(200).json({
       status: "success",
@@ -44,7 +44,7 @@ export const createNote = async (req, res) => {
     res.status(201).json({
       status: "success",
       data: {
-        Notes: newNotes,
+        note: newNotes,
       },
     });
   } catch (err) {
@@ -57,14 +57,10 @@ export const createNote = async (req, res) => {
 
 export const updateNote = async (req, res) => {
   try {
-    const UpdateNote = await Notes.findOneAndUpdate(
-      { id: req.params.id },
-      req.body,
-      {
-        new: true,
-        runValidators: true,
-      },
-    );
+    const UpdateNote = await Notes.findByIdAndUpdate(req.params.id, req.body, {
+      new: true,
+      runValidators: true,
+    });
     res.status(200).json({
       status: "success",
       data: {
@@ -81,8 +77,8 @@ export const updateNote = async (req, res) => {
 
 export const deleteNote = async (req, res) => {
   try {
-    await Notes.findOneAndDelete({ id: req.params.id });
-    res.status(204).json({
+    await Notes.findByIdAndDelete(req.params.id);
+    res.status(200).json({
       status: "success",
       message: "Note is Deleted",
       data: null,
