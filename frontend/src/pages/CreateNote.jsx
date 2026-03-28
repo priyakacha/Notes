@@ -27,44 +27,54 @@ function CreateNote() {
   };
 
   return (
-    <div className="p-10 max-w-xl mx-auto">
-      <h1 className="text-3xl font-bold mb-6">Create Note</h1>
+    <div className="min-h-screen bg-pink-300 flex items-center justify-center px-4">
+      <div className="w-full max-w-2xl bg-purple-400 p-8 rounded-2xl shadow-md border border-black">
+        {/* Header */}
+        <h1 className="text-3xl font-bold text-black mb-2">Create Note</h1>
+        <p className="text-black text-sm mb-6">
+          Capture your thoughts clearly and quickly
+        </p>
 
-      <form onSubmit={createNote} className="flex flex-col gap-4">
-        <input
-          type="text"
-          placeholder="Enter title"
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="border p-2 rounded"
-          required
-        />
+        {/* Form */}
+        <form onSubmit={createNote} className="flex flex-col gap-5">
+          {/* Title */}
+          <input
+            type="text"
+            placeholder="Note title..."
+            value={title}
+            onChange={(e) => setTitle(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-black"
+            required
+          />
 
-        <textarea
-          placeholder="Enter description"
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="border p-2 rounded h-32"
-          required
-        />
+          {/* Description */}
+          <textarea
+            placeholder="Write your note here..."
+            value={description}
+            onChange={(e) => setDescription(e.target.value)}
+            className="w-full px-4 py-3 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-black h-40 resize-none"
+            required
+          />
 
-        <div className="flex gap-4">
-          <button
-            type="submit"
-            className="bg-green-500 text-white py-2 px-4 rounded"
-          >
-            Create Note
-          </button>
+          {/* Buttons */}
+          <div className="flex justify-end gap-3 mt-4">
+            <button
+              type="button"
+              onClick={() => navigate("/")}
+              className="px-5 py-2 rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition"
+            >
+              Cancel
+            </button>
 
-          <button
-            type="button"
-            onClick={() => navigate("/")}
-            className="bg-gray-400 text-white py-2 px-4 rounded"
-          >
-            Cancel
-          </button>
-        </div>
-      </form>
+            <button
+              type="submit"
+              className="px-6 py-2 rounded-xl bg-black text-white hover:bg-gray-800 transition shadow-sm"
+            >
+              Save Note
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
   );
 }

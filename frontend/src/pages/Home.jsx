@@ -18,27 +18,37 @@ function Home() {
   }, []);
 
   return (
-    <div className="p-8 ">
-      <div className="flex items-center justify-between mb-6">
-        <h1 className="text-3xl font-bold">My Notes</h1>
+    <div className="min-h-screen bg-pink-300 px-10 py-8">
+      {/* Header */}
+      <div className="flex items-center justify-between mb-10">
+        <div>
+          <h1 className="text-4xl font-bold text-gray-800">My Notes</h1>
+          <p className="text-gray-500 mt-1 text-xl">
+            Organize your thoughts beautifully
+          </p>
+        </div>
 
         <button
           onClick={() => navigate("/create")}
-          className="bg-red-400 hover:bg-pink-300 text-white px-4 py-2 rounded text-xl"
+          className="bg-black hover:bg-gray-800 text-white px-5 py-2 rounded-xl text-lg shadow-md transition"
         >
-          +
+          + New Note
         </button>
       </div>
 
-      <div className="grid grid-cols-4 gap-6">
+      {/* Notes Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
         {notes.map((note) => (
           <div
             key={note._id}
             onClick={() => navigate(`/note/${note._id}`)}
-            className="bg-purple-300 p-4 rounded-xl shadow cursor-pointer hover:bg-purple-400 transition text-black font-bold"
+            className="bg-purple-400 p-5 rounded-2xl shadow-sm hover:shadow-lg cursor-pointer transition duration-300 border border-gray-100"
           >
-            <h2 className="font-semibold text-xl">{note.title}</h2>
-            <p className="line-clamp-2 text-gray-800 font-medium ">
+            <h2 className="font-semibold text-2xl text-black mb-2">
+              {note.title}
+            </h2>
+
+            <p className="text-black text-sm line-clamp-3">
               {note.description}
             </p>
           </div>

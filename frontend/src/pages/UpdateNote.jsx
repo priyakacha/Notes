@@ -37,40 +37,56 @@ function UpdateNote() {
   };
 
   return (
-    <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-2xl shadow-2xl w-[400px]">
-        <h2 className="text-2xl font-bold mb-6 text-center">Edit Note</h2>
+    <div className="min-h-screen bg-pink-300 flex items-center justify-center px-4">
+      <div className="w-full max-w-2xl bg-purple-400 p-8 rounded-2xl shadow-md border border-black">
+        {/* Header */}
+        <div className="flex justify-between items-center mb-5">
+          <h2 className="text-xl font-semibold txt-gray-800">Edit Note</h2>
 
+          <button
+            onClick={() => navigate(-1)}
+            className="text-gray-400 hover:text-black text-lg"
+          >
+            ✕
+          </button>
+        </div>
+
+        {/* Form */}
         <form onSubmit={handleUpdate} className="flex flex-col gap-4">
+          {/* Title */}
           <input
             type="text"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="border p-2 rounded"
+            placeholder="Note title..."
+            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 text-black"
             required
           />
 
+          {/* Description */}
           <textarea
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="border p-2 rounded h-28"
+            placeholder="Update your note..."
+            className="w-full px-4 py-3 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-red-500 text-black h-32 resize-none"
             required
           />
 
-          <div className="flex justify-between mt-2">
+          {/* Buttons */}
+          <div className="flex justify-end gap-3 mt-3">
             <button
               type="button"
               onClick={() => navigate(-1)}
-              className="bg-gray-400 text-white px-4 py-2 rounded"
+              className="px-4 py-2 rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition"
             >
               Cancel
             </button>
 
             <button
               type="submit"
-              className="bg-green-500 text-white px-4 py-2 rounded"
+              className="px-5 py-2 rounded-xl bg-black text-white hover:bg-gray-800 transition shadow-sm"
             >
-              Save
+              Save Changes
             </button>
           </div>
         </form>
