@@ -42,13 +42,13 @@ function Home() {
           <div
             key={note._id}
             onClick={() => navigate(`/note/${note._id}`)}
-            className="bg-purple-400 p-5 rounded-2xl shadow-sm hover:shadow-lg cursor-pointer transition duration-300 border border-gray-100"
+            className="bg-purple-400 p-5 rounded-2xl h-[300px] shadow-sm hover:shadow-lg cursor-pointer transition duration-300 border border-gray-100"
           >
             <h2 className="font-semibold text-2xl text-black mb-2">
               {note.title}
             </h2>
 
-            <p className="text-black text-sm line-clamp-3">
+            <p className="text-black text-xl line-clamp-5">
               {note.description}
             </p>
           </div>

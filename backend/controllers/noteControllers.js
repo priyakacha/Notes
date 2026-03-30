@@ -39,12 +39,12 @@ export const getNote = async (req, res) => {
 
 export const createNote = async (req, res) => {
   try {
-    const newNotes = await Notes.create(req.body);
+    const newNote = await Notes.create(req.body);
 
     res.status(201).json({
       status: "success",
       data: {
-        note: newNotes,
+        note: newNote,
       },
     });
   } catch (err) {

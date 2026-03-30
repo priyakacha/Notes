@@ -3,7 +3,7 @@ import mongoose from "mongoose";
 const noteSchema = new mongoose.Schema({
   title: {
     type: String,
-    required: ["title is main for notes"],
+    required: [true, "title is main for notes"],
     trim: true,
     unique: true,
     maxlength: [50, "title limite is just 50 characters"],
