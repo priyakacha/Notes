@@ -37,57 +37,70 @@ function UpdateNote() {
   };
 
   return (
-    <div className="min-h-screen bg-pink-300 flex items-center justify-center px-4">
-      <div className="w-full max-w-2xl bg-purple-400 p-8 rounded-2xl shadow-md border border-black">
+    <div className="min-h-screen bg-[#202125] flex items-center justify-center px-4">
+      {/* Card */}
+      <div className="w-full max-w-2xl bg-[#292a2c] p-8 rounded-3xl shadow-lg border border-black">
         {/* Header */}
-        <div className="flex justify-between items-center mb-5">
-          <h2 className="text-xl font-semibold txt-gray-800">Edit Note</h2>
+        <div className="flex justify-between items-center mb-6">
+          <h2 className="text-2xl font-bold text-white">Edit Note ✏️</h2>
 
           <button
             onClick={() => navigate(-1)}
-            className="text-gray-400 hover:text-black text-lg"
+            className="text-white hover:text-pink-200 text-xl transition"
           >
             ✕
           </button>
         </div>
 
         {/* Form */}
-        <form onSubmit={handleUpdate} className="flex flex-col gap-4">
-          {/* Title */}
-          <input
-            type="text"
-            value={title}
-            onChange={(e) => setTitle(e.target.value)}
-            placeholder="Note title..."
-            className="w-full px-4 py-3 rounded-xl border border-gray-200 focus:outline-none focus:ring-2 focus:ring-red-500 text-black"
-            required
-          />
+        <form onSubmit={handleUpdate} className="flex flex-col gap-5">
+          <div>
+            <label className="text-xl text-white mb-1 ml-2 block">Title</label>
 
-          {/* Description */}
-          <textarea
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-            placeholder="Update your note..."
-            className="w-full px-4 py-3 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-red-500 text-black h-32 resize-none"
-            required
-          />
+            <input
+              type="text"
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
+              placeholder="Enter note title..."
+              className="w-full px-4 py-3 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white bg-[#292a2c]"
+              required
+            />
+          </div>
+
+          <div>
+            <label className="text-xl text-white mb-1 ml-2 block">
+              Description
+            </label>
+
+            <textarea
+              value={description}
+              onChange={(e) => setDescription(e.target.value)}
+              placeholder="Update your note..."
+              className="w-full px-4 py-3 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-indigo-500 text-white bg-[#292a2c] h-40 resize-none"
+              required
+            />
+          </div>
 
           {/* Buttons */}
-          <div className="flex justify-end gap-3 mt-3">
-            <button
-              type="button"
-              onClick={() => navigate(-1)}
-              className="px-4 py-2 rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition"
-            >
-              Cancel
-            </button>
+          <div className="flex justify-between items-center mt-4">
+            <span className="text-sm text-white">Editing your note</span>
 
-            <button
-              type="submit"
-              className="px-5 py-2 rounded-xl bg-black text-white hover:bg-gray-800 transition shadow-sm"
-            >
-              Save Changes
-            </button>
+            <div className="flex gap-3">
+              <button
+                type="button"
+                onClick={() => navigate(-1)}
+                className="px-4 py-1.5 text-sm rounded-lg border border-gray-500 hover:bg-gray-700 transition text-white"
+              >
+                Cancel
+              </button>
+
+              <button
+                type="submit"
+                className="px-6 py-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-700 transition shadow-md"
+              >
+                Save Changes
+              </button>
+            </div>
           </div>
         </form>
       </div>

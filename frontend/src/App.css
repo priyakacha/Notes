@@ -11,6 +11,6 @@
   }
 }
 
-.animate-fadeIn {
-  animation: fadeIn 0.2s ease-out;
+.roboto {
+  font-family: Roboto, Arial, sans-serif;
 }

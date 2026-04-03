@@ -21,58 +21,53 @@ function CreateNote() {
     const data = await res.json();
     console.log("Created:", data);
 
-    // after create → go back to home
     navigate("/");
     window.location.reload();
   };
 
   return (
-    <div className="min-h-screen bg-pink-300 flex items-center justify-center px-4">
-      <div className="w-full max-w-2xl bg-purple-400 p-8 rounded-2xl shadow-md border border-black">
-        {/* Header */}
-        <h1 className="text-3xl font-bold text-black mb-2">Create Note</h1>
-        <p className="text-black text-sm mb-6">
-          Capture your thoughts clearly and quickly
-        </p>
+    <div className="min-h-screen bg-[#202125]">
+      {/* Top Bar */}
+      <div className="sticky top-0 bg-[#292a2c] backdrop-blur border-b px-10 py-5 flex justify-end gap-3">
+        <button
+          type="button"
+          onClick={() => navigate("/")}
+          className="px-4 py-1.5 text-sm rounded-lg border border-gray-500 hover:bg-gray-700 transition text-white"
+        >
+          Cancel
+        </button>
 
-        {/* Form */}
-        <form onSubmit={createNote} className="flex flex-col gap-5">
-          {/* Title */}
+        {/* Save */}
+        <button
+          onClick={createNote}
+          className="px-5 py-2 rounded-lg bg-indigo-600 text-white hover:bg-indigo-700 transition"
+        >
+          Save
+        </button>
+      </div>
+
+      {/* Editor */}
+      <div className="w-full px-80 py-20">
+        <form onSubmit={createNote} className="space-y-6">
           <input
             type="text"
-            placeholder="Note title..."
+            placeholder="Untitled Note"
             value={title}
             onChange={(e) => setTitle(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-black"
+            className="w-full text-5xl font-bold bg-transparent outline-none placeholder-gray-300 text-white"
             required
+            autoFocus
           />
 
-          {/* Description */}
+          <div className="h-[1px] bg-gray-200"></div>
+
           <textarea
-            placeholder="Write your note here..."
+            placeholder="Start writing your thoughts..."
             value={description}
             onChange={(e) => setDescription(e.target.value)}
-            className="w-full px-4 py-3 rounded-xl border border-black focus:outline-none focus:ring-2 focus:ring-black text-black placeholder-black h-40 resize-none"
+            className="w-full text-lg text-white bg-transparent outline-none resize-none min-h-[calc(100vh-200px)] leading-8 placeholder-gray-400"
             required
           />
-
-          {/* Buttons */}
-          <div className="flex justify-end gap-3 mt-4">
-            <button
-              type="button"
-              onClick={() => navigate("/")}
-              className="px-5 py-2 rounded-xl bg-gray-100 text-gray-600 hover:bg-gray-200 transition"
-            >
-              Cancel
-            </button>
-
-            <button
-              type="submit"
-              className="px-6 py-2 rounded-xl bg-black text-white hover:bg-gray-800 transition shadow-sm"
-            >
-              Save Note
-            </button>
-          </div>
         </form>
       </div>
     </div>
