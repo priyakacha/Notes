@@ -103,7 +103,7 @@ function Home() {
               <div
                 key={note._id}
                 onClick={() => navigate(`/note/${note._id}`)}
-                className="bg-[#202125] p-5 rounded-2xl shadow hover:shadow-lg hover:bg-gray-900 cursor-pointer transition duration-300 border border-gray-500"
+                className="bg-[#202125] p-5 rounded-2xl shadow hover:shadow-lg hover:bg-gray-950 cursor-pointer transition duration-300 border border-gray-500"
               >
                 <h2 className="robot font-normal text-3xl text-white mb-2">
                   {note.title}

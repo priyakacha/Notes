@@ -1,0 +1,21 @@
+name: MERN CI
+
+on: push
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get code
+        uses: actions/checkout@v3
+
+      - name: Backend install
+        run: |
+          cd backend
+          npm install
+
+      - name: Frontend install
+        run: |
+          cd frontend
+          npm install
